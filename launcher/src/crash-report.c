@@ -25,7 +25,7 @@ static void show_report(const char *log_filename) {
         "--width", CRASH_REPORT_DIALOG_WIDTH,
         "--height", CRASH_REPORT_DIALOG_HEIGHT,
         "--text-info",
-        "--text", "Minecraft: Pi Edition: Reborn has crashed!\n\nNeed help? Consider asking on the <a href=\"https://discord.com/invite/aDqejQGMMy\">Discord server</a>!",
+        "--text", "Minecraft: Pi Edition: Reborn Legacy has crashed!\n\nNeed help? Consider asking on the <a href=\"https://discord.com/invite/aDqejQGMMy\">Discord server</a>!",
         "--filename", log_filename,
         "--no-wrap",
         "--font", "Monospace",

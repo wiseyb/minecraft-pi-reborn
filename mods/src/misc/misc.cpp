@@ -118,10 +118,10 @@ void _init_misc_cpp() {
     // Improved Title Background
     if (feature_has("Improved Title Background", server_disabled)) {
         // Switch Background
-        overwrite_call((void *) 0x39528, (void *) StartMenuScreen_render_Screen_renderBackground_injection);
-        overwrite_call((void *) 0x3dee0, (void *) StartMenuScreen_render_Screen_renderBackground_injection);
+        overwrite_call((void *) 0x4a40c, (void *) StartMenuScreen_render_Screen_renderBackground_injection);
+        overwrite_call((void *) 0x52360, (void *) StartMenuScreen_render_Screen_renderBackground_injection);
         // Text Color
-        patch_address((void *) 0x397ac, (void *) 0xffffffff);
-        patch_address((void *) 0x3e10c, (void *) 0xffffffff);
+        patch_address((void *) 0x4a764, (void *) 0xffffffff);
+        patch_address((void *) 0x525f4, (void *) 0xffffffff);
     }
 }

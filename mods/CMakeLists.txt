@@ -26,7 +26,7 @@ if(MCPI_SERVER_MODE)
     add_library(server SHARED src/server/server.cpp src/server/server_properties.cpp)
     target_link_libraries(server reborn-patch symbols feature home misc compat dl media-layer-core pthread)
 else()
-    target_link_libraries(compat input sign chat home dl)
+    target_link_libraries(compat input chat home dl)
 
     target_link_libraries(chat input media-layer-core pthread)
 
@@ -41,11 +41,8 @@ else()
     add_library(camera SHARED src/camera/camera.cpp)
     target_link_libraries(camera reborn-patch symbols media-layer-core feature home)
 
-    add_library(input SHARED src/input/input.cpp src/input/bow.c src/input/attack.c src/input/toggle.c src/input/misc.c src/input/drop.cpp)
+    add_library(input SHARED src/input/input.cpp src/input/attack.c src/input/toggle.c src/input/misc.c src/input/drop.cpp)
     target_link_libraries(input reborn-patch symbols creative feature media-layer-core)
-
-    add_library(sign SHARED src/sign/sign.cpp)
-    target_link_libraries(sign reborn-patch symbols feature input)
 
     add_library(touch SHARED src/touch/touch.cpp)
     target_link_libraries(touch reborn-patch symbols feature)
@@ -69,8 +66,8 @@ target_link_libraries(death reborn-patch symbols feature)
 add_library(misc SHARED src/misc/misc.c src/misc/misc.cpp src/misc/logging.cpp)
 target_link_libraries(misc reborn-patch symbols media-layer-core feature GLESv1_CM)
 
-add_library(options SHARED src/options/options.c src/options/options.cpp)
-target_link_libraries(options reborn-patch symbols feature home)
+add_library(options SHARED src/options/options.c)
+target_link_libraries(options reborn-patch symbols feature)
 
 add_library(home SHARED src/home/home.c)
 target_link_libraries(home reborn-patch symbols)
@@ -83,7 +80,7 @@ target_link_libraries(init compat game-mode misc death options chat creative hom
 if(MCPI_SERVER_MODE)
     target_link_libraries(init server)
 else()
-    target_link_libraries(init multiplayer sound camera input sign touch textures atlas benchmark)
+    target_link_libraries(init multiplayer sound camera input touch textures atlas benchmark)
 endif()
 
 ## Install Mods
@@ -91,5 +88,5 @@ install(TARGETS init compat readdir feature game-mode misc death options chat cr
 if(MCPI_SERVER_MODE)
     install(TARGETS server DESTINATION "${MCPI_INSTALL_DIR}/mods")
 else()
-    install(TARGETS multiplayer sound override camera input sign touch textures atlas benchmark DESTINATION "${MCPI_INSTALL_DIR}/mods")
+    install(TARGETS multiplayer sound override camera input touch textures atlas benchmark DESTINATION "${MCPI_INSTALL_DIR}/mods")
 endif()
